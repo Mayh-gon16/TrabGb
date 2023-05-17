@@ -1,11 +1,9 @@
-//Array que vai guardar valores
 nomes = [];
 valores = "";
-pontoacao = 0;
+pontuacao = 0;
 rodada = 1;
 tempo = 1;
 
-//Selecionando componentes da tela
  txtNomes = document.querySelector("#nomes");
  btn = document.querySelector("#iniciar");
 
@@ -21,18 +19,18 @@ tempo = 1;
  })
 
  function jogar() {
-    numeroAleatorio = Math.floor(Math.random() * nomes.length)
+    numeroAleatorio = Math.floor(Math.random() * nomes.length) + 1;
     palpite = prompt(`Digite o ${numeroAleatorio}º nome da lista:`);
 
     var nomeCorreto = nomes[numeroAleatorio - 1];
-    mensagem;
+    var mensagem;
     if (palpite === nomeCorreto) {
-        pontoacao++;
+        pontuacao++;
         mensagem = "Parabéns, você acertou";
     } else {
         pontuacao--;
         mensagem = `Ops, você errou! O nome correto era ${nomeCorreto}.`;
-    } if(pontuacao<=5){
+    } if(pontuacao < 0){
         pontuacao = 0;
     } 
     alert(mensagem + ` Sua pontuação é ${pontuacao}.`);
